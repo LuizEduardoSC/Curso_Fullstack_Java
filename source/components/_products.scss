@@ -1,0 +1,32 @@
+@use '../config/variables' as *;
+
+.products {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 32.66%);
+    column-gap: 1%;
+    row-gap: 4%;
+    width: 100%;
+
+    .product-item {
+        img {
+            width: 100%;
+            border-radius: 16px;
+        }
+
+        .product-button {
+            display: block;
+            background-color: $color-button-bg;
+            color: $color-text-light;
+            text-align: center;
+            padding: $spacing-sm 0;
+            border-radius: $spacing-sm;
+            margin-top: $spacing-sm;
+            text-decoration: none;
+
+            &:hover {
+                background-color: $color-button-hover;
+            }
+        }
+    }
+}

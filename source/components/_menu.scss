@@ -1,0 +1,15 @@
+@use '../config/variables' as *;
+
+.menu {
+    display: flex;
+
+    li {
+        font-weight: bold;
+        margin-left: $spacing-lg;
+
+        a {
+            color: $color-text-light;
+            text-decoration: none;
+        }
+    }
+}
