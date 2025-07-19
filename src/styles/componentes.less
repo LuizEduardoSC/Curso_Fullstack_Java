@@ -1,0 +1,102 @@
+h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-top: 24px;
+    margin-bottom: 32px;
+}
+
+.container {
+    max-width: 960px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column; // h2 + produtos empilhados
+    padding: 0 16px;
+}
+
+// Aplica apenas quando .container está dentro do header
+header .container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px 16px;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    
+
+    .product-item {
+        width: 180px;
+        text-align: center;
+
+        h4 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        p {
+            font-size: 14px;
+        }
+    }
+}
+
+.product-button {
+    background-color: @cores[backgroundColor];
+    padding: 12px 24px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: @cores[textColor]; // cor do texto para contraste
+    cursor: pointer;
+
+    &:hover {
+        background-color: @cores[corDestaque];
+        color: white;
+    }
+}
+
+header {
+    width: 100%;
+    background-color: @cores[corDestaque];
+
+    .branding {
+        display: flex;
+        align-items: center;
+
+        img {
+            width: 120px;
+            height: auto;
+        }
+    }
+
+    .menu {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            margin-left: 20px;
+
+            a {
+                text-decoration: none;
+                color: @cores[link];
+                font-weight: bold;
+                text-transform: uppercase;
+                transition: color 0.3s;
+
+                &:hover {
+                    color: @cores[backgroundColor];
+                }
+            }
+        }
+    }
+}
+
+li {
+    list-style: none;
+}
