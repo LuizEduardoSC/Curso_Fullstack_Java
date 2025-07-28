@@ -1,0 +1,13 @@
+body {
+  background-color: #3498db;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+h2 {
+  font-size: 2rem;
+}
