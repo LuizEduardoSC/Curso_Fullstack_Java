@@ -24,21 +24,37 @@
 
 
 document.addEventListener('DOMContentLoaded', async () => {
+    const nameElement = document.querySelector('#name');
+    const usernameElement = document.querySelector('#username');
+    const avatarElement = document.querySelector('#avatar');
+    const reposElement = document.querySelector('#repos');
+    const followersElement = document.querySelector('#followers');
+    const followingElement = document.querySelector('#following');
+    const linkElement = document.querySelector('#link');
+    const loadingElement = document.querySelector('#loading');
+
+    loadingElement.style.display = 'block'; // mostra o feedback
+
     try {
         const res = await fetch('https://api.github.com/users/LuizEduardoSC');
-        if (!res.ok) throw new Error(`Erro ${res.status}: usuário não encontrado`);
+        if (!res.ok) throw new Error(`Erro ${res.status}`);
 
         const json = await res.json();
 
-        document.querySelector('#name').innerText = json.name || 'Nome não disponível';
-        document.querySelector('#username').innerText = `@${json.login}`;
-        document.querySelector('#avatar').src = json.avatar_url;
-        document.querySelector('#repos').innerText = json.public_repos;
-        document.querySelector('#followers').innerText = json.followers;
-        document.querySelector('#following').innerText = json.following;
-        document.querySelector('#link').href = json.html_url;
+        nameElement.innerText = json.name || 'Nome não disponível';
+        usernameElement.innerText = `@${json.login}`;
+        avatarElement.src = json.avatar_url;
+        reposElement.innerText = json.public_repos;
+        followersElement.innerText = json.followers;
+        followingElement.innerText = json.following;
+        linkElement.href = json.html_url;
     } catch (erro) {
-        console.error('Erro ao buscar dados do GitHub:', erro.message);
-        alert('Não foi possível carregar os dados do perfil.');
+        console.error('Erro ao buscar dados do GitHub:', erro);
+        loadingElement.innerText = 'Erro ao carregar dados.';
+        loadingElement.style.color = 'red';
+    } finally {
+        setTimeout(() => {
+            loadingElement.style.display = 'none'; // esconde após 1s
+        }, 1000);
     }
 });

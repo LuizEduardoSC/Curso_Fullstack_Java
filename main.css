@@ -12,7 +12,8 @@
 }
 
 body {
-    background-color: var(--bg-color);;
+    background-color: var(--bg-color);
+    ;
 }
 
 .container {
@@ -69,4 +70,19 @@ header .container {
 
 .numbers-item h4 {
     font-size: .3em;
+}
+
+.loading {
+    display: none;
+    font-size: 1.2rem;
+    color: #555;
+    text-align: center;
+    margin-top: 20px;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.3; }
+    50% { opacity: 1; }
+    100% { opacity: 0.3; }
 }
